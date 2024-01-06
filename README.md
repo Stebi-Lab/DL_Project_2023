@@ -39,6 +39,28 @@ More than 15 companies can be tested if the iterator break is removed.
 The variable **ESG** will define if ESG data will be embedded into the training data or not.
 It is important to note that pytorchs LSTM training is non deterministic. 
 
+```python
+def main():
+
+    if 0:
+        print("Hello")
+
+    # Parameters for safing model 
+    safe = False
+    safeModelName = "Model"
+
+    # Parameters to use the Model for inference and prediction on the data.
+    useModel = True
+    Model = "Model_NoESG_1" #Model to use
+
+    doTraining = False
+    plotting = True
+
+    if useModel:
+        lstm.load_state_dict(torch.load(Model))
+        doTraining = False
+        plotting = True
+```
 
 # Plotting and Evaluation:
 
