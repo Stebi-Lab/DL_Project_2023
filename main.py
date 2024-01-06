@@ -85,7 +85,7 @@ def test_stationarity(timeseries):
         dfoutput['Critical Value (%s)'%key] = value
     print(dfoutput)
 
-n_epochs = 500 
+n_epochs = 100 
 learning_rate = 0.001 
 
 preview = 241 # How many previous days to use for prediction
@@ -99,7 +99,7 @@ num_layers = 1 # number of stacked lstm layers
 
 num_classes = predict # number of output classes 
 
-ESG = False
+ESG = True
 input_size = 6 # number of features (without ESG 6 with 19)
 if ESG:
     input_size = 19
@@ -116,7 +116,7 @@ df2020 = pd.read_excel('data_feature_csi_2020.xlsx', index_col = 'Company_code',
 df2021 = pd.read_excel('data_feature_csi_2021.xlsx', index_col = 'Company_code', parse_dates=True)
 df2022 = pd.read_excel('data_feature_csi_2022.xlsx', index_col = 'Company_code', parse_dates=True)
 
-def TrainingIteration(plotting, f, filename):
+def TrainingIteration(plotting, f, filename, training):
 
     df = pd.read_csv(f, index_col = 'Date', parse_dates=True)
 
@@ -236,21 +236,24 @@ def TrainingIteration(plotting, f, filename):
                                             X_test_tensors.shape[2])) 
     except:
         print("skipped invalid data")
-        return -1
+        return 0
 
     #print("Training Shape:", X_train_tensors_final.shape, y_train_tensors.shape)
     #print("Testing Shape:", X_test_tensors_final.shape, y_test_tensors.shape) 
 
     # Training ------------------------------------------------------------------------------
 
-    finalTestLoss = training_loop(n_epochs=n_epochs,
-        lstm=lstm,
-        optimiser=optimiser,
-        loss_fn=loss_fn,
-        X_train=X_train_tensors_final,
-        y_train=y_train_tensors,
-        X_test=X_test_tensors_final,
-        y_test=y_test_tensors)
+    if training:
+        finalTestLoss = training_loop(n_epochs=n_epochs,
+            lstm=lstm,
+            optimiser=optimiser,
+            loss_fn=loss_fn,
+            X_train=X_train_tensors_final,
+            y_train=y_train_tensors,
+            X_test=X_test_tensors_final,
+            y_test=y_test_tensors)
+    else:
+        finalTestLoss = 0
     
     # Ploting ------------------------------------------------------------------------------
     
@@ -330,18 +333,26 @@ def TrainingIteration(plotting, f, filename):
 
 
 def main():
+
     safe = True
+    useModel = False
+    plotting = False
     iteration = 0
     finalloss = []
+    doTraining = True
+
+    if useModel:
+        lstm.load_state_dict(torch.load("Model_ESG"))
+
     for filename in os.listdir('CSI300_historical_Data'):
         iteration += 1
         print(f"iteration: {iteration}")
         f = os.path.join('CSI300_historical_Data', filename)
         print('read file:' + f)
-        if iteration == 30:
+        if iteration == 10:
             break
         
-        loss = TrainingIteration(False, f, filename)
+        loss = TrainingIteration(plotting, f, filename, doTraining)
         if loss:
             finalloss.append(loss)
 
@@ -352,7 +363,7 @@ def main():
     print("Finished")
 
     if safe:
-        torch.save(lstm.state_dict(), "Model")
+        torch.save(lstm.state_dict(), "Model_ESG")
     
 
 
