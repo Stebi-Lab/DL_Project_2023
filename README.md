@@ -33,7 +33,7 @@ better prediction resul
 # Training:
 
 To start training the variable **useModel** must be **false**.
-It is recommended to also set **plotting** to **false** as this will plot the inference for each company.
+It is recommended to also set **plotting** to **false** as this will stop ploting the inference for each company.
 If wanted by setting **safe** to **True** the model will be safed on the root folder.
 More than 15 companies can be tested if the iterator break is removed. 
 The variable **ESG** will define if ESG data will be embedded into the training data or not.
