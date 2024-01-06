@@ -3,28 +3,28 @@
 
 # Effect of ESG Company data on the long term Market prospects of Companies.
 
-As a framework to evaluate companies’ sustain-
-ability performance, ESG(Environmental, Social
+As a framework to evaluate companies’ sustainability 
+performance, ESG(Environmental, Social
 and Governance) is getting increasing attentions
 worldwide. In this study, we have investigated
-the application of both deep learning and non-
+the application of both deep learning and non
 deep-learning method to find the correspondence
-between ESG data and stock price of listed com-
-panies taking into account the long-term influ-
-ence of ESG data. We firstly identified the exist-
-ing problem which could be solved with the help
-of deep learning technics based on literature re-
-view and preliminary analysis. Then relevant data
+between ESG data and stock price of listed companies 
+taking into account the long-term influence 
+of ESG data. We firstly identified the existing 
+problem which could be solved with the help
+of deep learning technics based on literature review 
+and preliminary analysis. Then relevant data
 from public source including ESG performance
 data and stock price data of a group of enterprise
 were collected to build the dataset fit for further
 analysis. An architecture to simplify the learning
 of sequential data was proposed and two types
 of models, one non-deep-learning method and
-one deep learning method, were established. Fi-
-nally, we compared the results of the two methods
-and found that 1) the LSTM method could effec-
-tively higher capacity to accommodate ESG data
+one deep learning method, were established. Finally, 
+we compared the results of the two methods
+and found that 1) the LSTM method could effectively 
+higher capacity to accommodate ESG data
 2) LSTM method considering ESG data provided
 better prediction resul
 
