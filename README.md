@@ -44,3 +44,6 @@ It is important to note that pytorchs LSTM training is non deterministic.
 
 To use an already exisiting model set the **useModel** to **True** and set **plotting** to **True**.
 This will iterate over the companies creating the plots from the report. 
+
+# Graphs
+![alt text]([[https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/Stebi-Lab/DL_Project_2023/blob/master/Graphs/Company1_ESG.png)](https://github.com/Stebi-Lab/DL_Project_2023/blob/master/Graphs/Company1_ESG.png)https://github.com/Stebi-Lab/DL_Project_2023/blob/master/Graphs/Company1_ESG.png)
