@@ -85,7 +85,7 @@ def test_stationarity(timeseries):
         dfoutput['Critical Value (%s)'%key] = value
     print(dfoutput)
 
-n_epochs = 100 
+n_epochs = 500 
 learning_rate = 0.001 
 
 preview = 241 # How many previous days to use for prediction
@@ -334,39 +334,48 @@ def TrainingIteration(plotting, f, filename, training):
 
 def main():
 
+    if 0:
+        print("Hello")
+
+    # Parameters for safing model 
     safe = True
+    safeModelName = "Model"
+
+    # Parameters to use the Model for inference and prediction on the data.
     useModel = False
-    plotting = False
-    iteration = 0
-    finalloss = []
+    Model = "Model_ESG_1" #Model to use
+
     doTraining = True
+    plotting = False
 
     if useModel:
-        lstm.load_state_dict(torch.load("Model_ESG"))
+        lstm.load_state_dict(torch.load(Model))
+        doTraining = False
+        plotting = True
 
+    iteration = 0
+    finalloss = []  
     for filename in os.listdir('CSI300_historical_Data'):
         iteration += 1
         print(f"iteration: {iteration}")
         f = os.path.join('CSI300_historical_Data', filename)
         print('read file:' + f)
-        if iteration == 10:
+        if iteration == 16:
             break
         
         loss = TrainingIteration(plotting, f, filename, doTraining)
         if loss:
             finalloss.append(loss)
-
-    print("Final Statistic")
-    print(finalloss)
-    print("Avarage Loss")
-    print((sum(finalloss) / len(finalloss)))
-    print("Finished")
+    if not useModel:
+        print("Final Statistic")
+        print(finalloss)
+        print("Avarage Loss")
+        print((sum(finalloss) / len(finalloss)))
+        print("Finished")
 
     if safe:
-        torch.save(lstm.state_dict(), "Model_ESG")
+        torch.save(lstm.state_dict(), safeModelName)
     
-
-
 
 if __name__ == "__main__":
     main()
