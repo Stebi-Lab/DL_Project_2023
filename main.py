@@ -85,7 +85,7 @@ def test_stationarity(timeseries):
         dfoutput['Critical Value (%s)'%key] = value
     print(dfoutput)
 
-n_epochs = 500 
+n_epochs = 200 
 learning_rate = 0.001 
 
 preview = 241 # How many previous days to use for prediction
@@ -99,7 +99,7 @@ num_layers = 1 # number of stacked lstm layers
 
 num_classes = predict # number of output classes 
 
-ESG = True
+ESG = False
 input_size = 6 # number of features (without ESG 6 with 19)
 if ESG:
     input_size = 19
@@ -338,15 +338,15 @@ def main():
         print("Hello")
 
     # Parameters for safing model 
-    safe = True
+    safe = False
     safeModelName = "Model"
 
     # Parameters to use the Model for inference and prediction on the data.
-    useModel = False
-    Model = "Model_ESG_1" #Model to use
+    useModel = True
+    Model = "Model_NoESG_1" #Model to use
 
-    doTraining = True
-    plotting = False
+    doTraining = False
+    plotting = True
 
     if useModel:
         lstm.load_state_dict(torch.load(Model))

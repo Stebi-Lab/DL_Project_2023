@@ -37,7 +37,7 @@ It is recommended to also set **plotting** to **false** as this will plot the in
 If wanted by setting **safe** to **True** the model will be safed on the root folder.
 More than 15 companies can be tested if the iterator break is removed. 
 The variable **ESG** will define if ESG data will be embedded into the training data or not.
-It is important to note that pytorchs LSTM training is non deterministic and can sometimes bring special results.
+It is important to note that pytorchs LSTM training is non deterministic. 
 
 
 # Plotting and Evaluation:
