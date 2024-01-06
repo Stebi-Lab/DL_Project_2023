@@ -1,9 +1,7 @@
 
-# Heading
-Deep Learning Project 2023-2024
+# Deep Learning Project 2023-2024
 
-# Heading level 4
-Effect of ESG Company data on the long term Market prospects of Companies.
+# Effect of ESG Company data on the long term Market prospects of Companies.
 
 As a framework to evaluate companies’ sustain-
 ability performance, ESG(Environmental, Social
@@ -30,11 +28,9 @@ tively higher capacity to accommodate ESG data
 2) LSTM method considering ESG data provided
 better prediction resul
 
-# Heading level 4
-Reproduction of Results:
+# Reproduction of Results:
 
-# Heading level 6
-Training:
+# Training:
 
 To start training the variable **useModel** must be **false**.
 It is recommended to also set **plotting** to **false** as this will plot the inference for each company.
@@ -44,8 +40,7 @@ The variable **ESG** will define if ESG data will be embedded into the training 
 It is important to note that pytorchs LSTM training is non deterministic and can sometimes bring special results.
 
 
-# Heading level 6
-Plotting and Evaluation:
+# Plotting and Evaluation:
 
 To use an already exisiting model set the **useModel** to **True** and set **plotting** to **True**.
 This will iterate over the companies creating the plots from the report. 
