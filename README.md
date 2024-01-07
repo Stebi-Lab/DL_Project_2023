@@ -63,3 +63,4 @@ def main():
 To use an already exisiting model set the **useModel** to **True** and set **plotting** to **True**.
 This will iterate over the companies creating the plots from the report. 
 
+The results from the paper are in the results.txt file together with the names of the trained models. All models are in the root folder.
