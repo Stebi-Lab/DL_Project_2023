@@ -85,7 +85,7 @@ def test_stationarity(timeseries):
         dfoutput['Critical Value (%s)'%key] = value
     print(dfoutput)
 
-n_epochs = 200 
+n_epochs = 100 
 learning_rate = 0.001 
 
 preview = 241 # How many previous days to use for prediction
@@ -360,7 +360,7 @@ def main():
         print(f"iteration: {iteration}")
         f = os.path.join('CSI300_historical_Data', filename)
         print('read file:' + f)
-        if iteration == 16:
+        if iteration == 11:
             break
         
         loss = TrainingIteration(plotting, f, filename, doTraining)
