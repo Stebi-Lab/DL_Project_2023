@@ -3,30 +3,25 @@
 
 # Effect of ESG Company data on the long term Market prospects of Companies.
 
-As a framework to evaluate companies’ sustainability 
-performance, ESG(Environmental, Social
+As a framework to evaluate sustainability perfor-
+mance of companies, ESG(Environmental, Social
 and Governance) is getting increasing attentions
 worldwide. In this study, we have investigated
-the application of both deep learning and non
+the application of both deep learning and non-
 deep-learning method to find the correspondence
-between ESG data and stock price of listed companies 
-taking into account the long-term influence 
-of ESG data. We firstly identified the existing 
-problem which could be solved with the help
-of deep learning technics based on literature review 
-and preliminary analysis. Then relevant data
-from public source including ESG performance
-data and stock price data of a group of enterprise
-were collected to build the dataset fit for further
-analysis. An architecture to simplify the learning
-of sequential data was proposed and two types
-of models, one non-deep-learning method and
-one deep learning method, were established. Finally, 
-we compared the results of the two methods
-and found that 1) the LSTM method could effectively 
-higher capacity to accommodate ESG data
-2) LSTM method considering ESG data provided
-better prediction resul
+between ESG data and stock price of listed compa-
+nies considering the long-term influence of ESG
+data. Relevant data from public source including
+ESG performance data and stock price data of
+a group of complies were collected to build the
+dataset. An architecture to simplify the learning of
+sequential data was proposed. Normal regression
+and LSTM models were trained to predict stock
+price with/without considering ESG features. The
+result of the study indicate that i) LSTM outper-
+form non-DL model and ii) when using LSTM,
+the learning considering ESG data could provide
+better prediction than that without ESG data.
 
 # Reproduction of Results:
 
